@@ -1,53 +1,63 @@
-# Netlify Developer Portfolio Starter (auto-annotated)
+# Personal Website
 
-![Developer Portfolio](https://assets.stackbit.com/docs/personal-nextjs-starter-thumb.png)
+This is a personal website built with [Next.js](https://nextjs.org/), [React](https://reactjs.org/), [Tailwind CSS](https://tailwindcss.com/), and [Stackbit](https://www.stackbit.com/).
 
-This is a full-fledged portfolio website built with Next.js, Tailwind CSS, [visual editor](https://docs.netlify.com/visual-editor/overview/) and the [Git Content Source](https://docs.netlify.com/create/content-sources/git/).
+## Tech Stack
 
-The codebase showcases **how to apply annotations at scale**, meaning: how to make much of your components [highlightable in the visual editor](https://docs.netlify.com/visual-editor/visual-editing/inline-editor/) through data attributes without manually adding code throughout the codebase.
-
-**This is achieved by:**
-
-1. Adding an annotation property to the content objects at they're loaded (see `src/utils/content.ts`)
-1. When rendering the page, each content sub-object is dynamically matched to the appropriate component. At this point, wrap each component with an annotation, based on the abovementioned content property. See `src/components/components-registry.tsx`.
-
-**⚡ Demo:** [auto-annotated-portfolio.netlify.app](https://auto-annotated-portfolio.netlify.app)
-
-## Deploying to Netlify
-
-If you click "Deploy to Netlify" button, it will create a new repo for you that looks exactly like this one, and sets that repo up immediately for deployment on Netlify.
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/auto-annotated-portfolio)
+* **Framework**: [Next.js](https://nextjs.org/)
+* **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+* **Content Management**: [Stackbit](https://www.stackbit.com/)
+* **Deployment**: [Netlify](https://www.netlify.com/)
 
 ## Getting Started
 
-The typical development process is to begin by working locally. Clone this repository, then run `npm install` in its root directory.
+### Prerequisites
 
-Run the Next.js development server:
+* [Node.js](https://nodejs.org/en/) (version 18 or higher)
+* [npm](https://www.npmjs.com/)
 
-```txt
-cd auto-annotated-portfolio
-npm run dev
-```
+### Installation
 
-Install the [Netlify visual editor CLI](https://www.npmjs.com/package/@stackbit/cli). Then open a new terminal window in the same project directory and run the Netlify visual editor dev server:
+1. Clone the repository and navigate to the project directory.
+2. Install the dependencies:
+   ```bash
+   npm install
+   ```
 
-```txt
-npm install -g @stackbit/cli
-stackbit dev
-```
+### Running the Development Server
 
-This outputs your own Netlify visual editor URL. Open this, register or sign in, and you will be directed to Netlify's visual editor for your new project.
+To start the development server, you need to run two commands in parallel in separate terminal windows:
 
-![Next.js Dev + Netlify visual editor dev](https://assets.stackbit.com/docs/next-dev-stackbit-dev.png)
+1.  Run the Next.js development server:
+    ```bash
+    npm run dev
+    ```
+2.  Run the Stackbit development server for the visual editor:
+    ```bash
+    npx stackbit dev
+    ```
 
-## Next Steps
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result, and `localhost:8090` to use the Stackbit editor.
 
-Here are a few suggestions on what to do next if you're new to Netlify Visual Editor:
+## Project Structure
 
-- Learn [how Netlify Visual Editor works](https://docs.netlify.com/visual-editor/overview/)
-- Check [Netlify visual editor reference documentation](https://visual-editor-reference.netlify.com/)
+The project is structured as follows:
 
-## Support
+* **`content/`**: Contains the content of the website, managed by Stackbit.
+* **`public/`**: Contains static assets, such as images.
+* **`src/`**: Contains the source code of the application.
+  * **`components/`**: Contains the React components, organized into atoms, molecules, sections, and layouts.
+  * **`pages/`**: Contains the Next.js pages. The `[[...slug]].tsx` file is a dynamic route that handles all pages based on the content from Stackbit.
+  * **`css/`**: Contains the main CSS file.
+  * **`utils/`**: Contains utility functions.
+* **`stackbit.config.ts`**: The configuration file for Stackbit.
 
-If you get stuck along the way, get help in our [support forums](https://answers.netlify.com/).
+## Content Management
+
+This project uses [Stackbit](https://www.stackbit.com/) for content management. The content models are defined in the `.stackbit/models` directory. The content itself is stored in the `content` directory.
+
+You can edit the content locally or use the Stackbit visual editor.
+
+## Deployment
+
+This project is configured for deployment on [Netlify](https://www.netlify.com/). The `netlify.toml` file contains the deployment settings. To deploy the project, you can connect your Git repository to Netlify.
